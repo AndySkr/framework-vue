@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "target": "esnext",
+        "allowJs": true,
+        "module": "es2015",
+        "lib": ["dom", "esnext"],
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "extendedDiagnostics": true,
+        "jsxFactory": "h",
+        "allowSyntheticDefaultImports": true // 允许从没有设置默认导出的模块中默认导入
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
