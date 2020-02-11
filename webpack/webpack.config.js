@@ -4,15 +4,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
     resolve: {
-        extensions: ['.tsx', 'ts', '.vue', '.js', '.json'],
+        extensions: ['.vue', '.tsx', '.ts', '.js'],
         alias: {
-            '@': path.resolve(__dirname, '../src/')
+            '@': path.resolve(__dirname, '../src')
         }
     },
     entry: path.resolve(__dirname, '../src/index.ts'),
-    output: {
-        path: path.resolve(__dirname, '../dist/js')
-    },
     module: {
         rules: [
             {
@@ -21,11 +18,12 @@ module.exports = {
                 include: /src/
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    babelrc: true
+                    babelrc: true,
+                    cacheDirectory: true
                 }
             },
             {
@@ -45,7 +43,17 @@ module.exports = {
                 use: [
                     process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'postcss-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: [
+                                require('autoprefixer')({
+                                    overrideBrowserslist: ['last 2 versions', 'ios >= 8']
+                                })
+                            ]
+                        }
+                    },
                     'less-loader'
                 ]
             },
@@ -67,8 +75,5 @@ module.exports = {
             filename: 'index.html'
         }),
         new VueLoaderPlugin()
-    ],
-    optimization: {
-        usedExports: true
-    }
+    ]
 };

@@ -4,8 +4,9 @@ const baseConfig = require('./webpack.config');
 const webpackMerge = require('webpack-merge');
 module.exports = webpackMerge(baseConfig, {
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     output: {
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',
         chunkFilename: '[name].chunk.js'
     },
@@ -27,7 +28,7 @@ module.exports = webpackMerge(baseConfig, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
-            chunkFilename: '[id].css'
+            chunkFilename: '[id:5][name].css'
         })
     ]
 });

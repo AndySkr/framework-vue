@@ -14,18 +14,7 @@ export default {
       info: 3
     };
   },
-  mounted() {
-    var promise = new Promise(function(resolve, reject) {
-      const value = "success";
-      const error = "fail";
-      resolve(() => {
-        console.log(value);
-      });
-      reject(() => {
-        console.log(error);
-      });
-    });
-  }
+  mounted() {}
 };
 </script>
 <style scoped lang="less" module>

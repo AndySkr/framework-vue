@@ -1,28 +1,23 @@
 <template>
-  <div>
-    <Hello />
-    <div>1213121</div>
-  </div>
+    <div id="app">
+        <router-view />
+    </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import Hello from "./components/Hello.vue";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 @Component({
-  name: "App",
-  components: {
-    Hello
-  }
+    name: 'App'
 })
 export default class App extends Vue {
-  appNum: number = 999;
-  mounted() {
-    this.logNum();
-  }
-  logNum() {
-    console.log(this.appNum);
-  }
+    appNum: number = 999;
+    mounted() {
+        this.logNum();
+    }
+    logNum() {
+        console.log(this.appNum);
+    }
 }
 </script>
 

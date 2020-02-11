@@ -5,7 +5,7 @@
         "noImplicitAny": true,
         "target": "esnext",
         "allowJs": true,
-        "module": "es2015",
+        "module": "esnext",
         "lib": ["dom", "esnext"],
         "jsx": "preserve",
         "moduleResolution": "node",
@@ -17,6 +17,6 @@
         "jsxFactory": "h",
         "allowSyntheticDefaultImports": true // 允许从没有设置默认导出的模块中默认导入
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/vue.d.ts"],
     "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue';
+import router from './routes/index.ts';
 import App from './App.vue';
-import { CreateElement } from 'vue/types/vue';
 new Vue({
-    el: '#app',
-    render: (h: CreateElement) => h(App)
-});
+    router,
+    render: h => h(App)
+}).$mount('#app');
