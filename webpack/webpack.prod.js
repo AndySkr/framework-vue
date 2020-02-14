@@ -1,7 +1,6 @@
 const baseConfig = require('./webpack.config');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const path = require('path');
 const merge = require('webpack-merge');
@@ -10,14 +9,10 @@ module.exports = merge(baseConfig, {
     devtool: 'cheap-module-source-map',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[contenthash:5].js',
-        chunkFilename: '[name].[contenthash:5].js'
+        filename: 'scripts/[name].[contenthash:5].js',
+        chunkFilename: 'scripts/[name].[contenthash:5].js'
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].css', ////都提到build目录下的css目录中
-            chunkFilename: 'css/[name].css'
-        }),
         new HardSourceWebpackPlugin([
             {
                 test: /mini-css-extract-plugin[\\/]dist[\\/]loader/

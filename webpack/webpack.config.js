@@ -2,6 +2,8 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 module.exports = {
     resolve: {
         extensions: ['.vue', '.tsx', '.ts', '.js'],
@@ -9,7 +11,9 @@ module.exports = {
             '@': path.resolve(__dirname, '../src')
         }
     },
-    entry: path.resolve(__dirname, '../src/index.ts'),
+    entry: {
+        main: path.resolve(__dirname, '../src/index.ts')
+    },
     module: {
         rules: [
             {
@@ -74,6 +78,16 @@ module.exports = {
             template: 'index.html',
             filename: 'index.html'
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].[hash:5].css',
+            chunkFilename: 'styles/[id].[hash:5].css'
+        }),
+        new WebpackBuildNotifierPlugin({
+            // 全局提示webpack打包完成结果
+            title: 'Andy`s project',
+            logo: path.resolve('../src/assets/images/blackManba.jpg'),
+            suppressSuccess: true
+        })
     ]
 };
