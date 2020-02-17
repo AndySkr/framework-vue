@@ -10,7 +10,14 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                use: [path.resolve('./loaders/loader.js')]
+                use: [
+                    {
+                        loader: path.resolve('./loaders/loader.js'),
+                        options: {
+                            name: 'jeames'
+                        }
+                    }
+                ]
             }
         ]
     }

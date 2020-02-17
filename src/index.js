@@ -1,1 +1,8 @@
-console.log('hello world');
+class A {
+    constructor() {
+        this.name = 'Andy';
+    }
+    fn() {
+        console.log('hello', this.name);
+    }
+}
