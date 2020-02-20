@@ -14,7 +14,7 @@ module.exports = {
                     {
                         loader: path.resolve('./loaders/loader.js'),
                         options: {
-                            name: 'jeames'
+                            name: 'sherlock'
                         }
                     }
                 ]
