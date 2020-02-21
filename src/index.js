@@ -1,10 +1,13 @@
-import sayHello from './hello.js';
-class A {
-    constructor() {
-        this.name = 'Andy';
-    }
-    fn() {
-        console.log('hello', this.name);
-        sayHello();
-    }
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker
+            .register('/service-worker.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
 }
+document.write('<h1>hello PWA</h1>');
