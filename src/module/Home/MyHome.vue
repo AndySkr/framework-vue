@@ -1,33 +1,33 @@
 <template>
-  <div class="wrap">
-    <h1>hi</h1>
-    <h2>{{ mes }}</h2>
-    <h2>{{ info }}</h2>
-  </div>
+    <div class="wrap">
+        <h1>hey</h1>
+        <h2>{{ mes }}</h2>
+        <h2>{{ info }}</h2>
+    </div>
 </template>
 <script>
 export default {
-  name: "MyHome",
-  data() {
-    return {
-      mes: 3,
-      info: 3
-    };
-  },
-  mounted() {}
+    name: 'MyHome',
+    data() {
+        return {
+            mes: 3,
+            info: 3
+        };
+    },
+    mounted() {}
 };
 </script>
 <style scoped lang="less" module>
 .wrap {
-  width: 100%;
-  height: 100vh;
-  background: url("../../assets/images/bg.jpg") no-repeat center center;
-  background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background: url('../../assets/images/bg.jpg') no-repeat center center;
+    background-size: cover;
 
-  h1,
-  h2 {
-    background: yellow;
-    width: 120px;
-  }
+    h1,
+    h2 {
+        background: yellow;
+        width: 120px;
+    }
 }
 </style>

@@ -3,6 +3,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const smp = new SpeedMeasurePlugin(); // 分析记录打包时间
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const baseConfig = require('./webpack.config');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 module.exports = smp.wrap(
     webpackMerge(baseConfig, {
@@ -30,6 +31,7 @@ module.exports = smp.wrap(
         },
         plugins: [
             // new DashboardPlugin() // 编译过程输出表格化
+            new webpack.HotModuleReplacementPlugin()
         ]
     })
 );

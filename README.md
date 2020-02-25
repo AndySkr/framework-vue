@@ -1,5 +1,9 @@
 #### vue 脚手架
 
+    打包命令:
+        npm run build --mode=dev
+        npm run build --mode=prod
+
     1.vue + vue-router + typescript + webpack 搭建的简单版移动端脚手架
     2.采用了基于类的组件的编码方式,借助 vue-class-component 插件提供的装饰器,很舒服的:
             import Vue from 'vue'

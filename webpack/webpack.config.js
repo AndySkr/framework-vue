@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 module.exports = {
     resolve: {
         extensions: ['.vue', '.tsx', '.ts', '.js'],
@@ -33,7 +34,10 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                options: {
+                    transpileOnly: true //关闭类型检查，即只进行转译
+                }
             },
             {
                 test: /\.css$/,
@@ -75,8 +79,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new htmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'index.html'
+            template: 'index.ejs',
+            filename: 'index.html',
+            environment: process.env.npm_config_mode || 'dev'
         }),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
@@ -88,6 +93,9 @@ module.exports = {
             title: 'Andy`s project',
             logo: path.resolve('../src/assets/images/blackManba.jpg'),
             suppressSuccess: true
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            async: false
         })
     ]
 };
