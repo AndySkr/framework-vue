@@ -16,7 +16,8 @@ module.exports = env => {
         devServer: {
             open: true,
             contentBase: 'dist',
-            hot: true //启用热更新 第一步
+            hot: true, //启用热更新 第一步
+            host: '0.0.0.0'
         },
         plugins: [
             new HtmlWebpackPlugin({
