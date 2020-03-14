@@ -1,5 +1,5 @@
 <template>
-    <div>hello</div>
+    <div class="hello">hello,{{ age }}</div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
@@ -9,11 +9,13 @@ import Component from 'vue-class-component';
 })
 export default class Hello extends Vue {
     private age: number = 12;
-    mounted() {}
+    mounted() {
+        console.log('Hello Component mounted', this.age);
+    }
 }
 </script>
 <style lang="less" scoped module>
-div {
+.hello {
     background: lightblue;
 }
 </style>

@@ -31,7 +31,7 @@ module.exports = smp.wrap(
         },
         plugins: [
             // new DashboardPlugin() // 编译过程输出表格化
-            new webpack.HotModuleReplacementPlugin()
+            // new webpack.HotModuleReplacementPlugin()
         ]
     })
 );

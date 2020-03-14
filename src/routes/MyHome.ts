@@ -9,7 +9,7 @@ export default [
     },
     {
         name: 'hello',
-        path: 'hello',
+        path: '/hello',
         component: Hello
     }
 ];

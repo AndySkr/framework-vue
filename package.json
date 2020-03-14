@@ -1,12 +1,11 @@
 {
     "sideEffects": [
         "*.css",
-        "*.json",
-        "@babel/polly-fill"
+        "*.json"
     ],
     "scripts": {
         "dev:dashboard": "webpack-dashboard -- webpack-dev-server --config webpack/webpack.dev.js --colors",
-        "start": "webpack-dev-server --config webpack/webpack.dev.js --colors",
+        "start": "webpack-dev-server --inline --config webpack/webpack.dev.js --colors  --progress",
         "build": "webpack --config webpack/webpack.prod.js --env prod --colors --progress"
     },
     "devDependencies": {
@@ -27,11 +26,9 @@
         "eslint-config-alloy": "^3.5.0",
         "fork-ts-checker-webpack-plugin": "^4.0.4",
         "html-webpack-plugin": "^3.2.0",
-        "i": "^0.3.6",
         "less": "^3.10.3",
         "less-loader": "^5.0.0",
         "mini-css-extract-plugin": "^0.9.0",
-        "npm": "^6.13.7",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "postcss-loader": "^3.0.0",
         "postcss-px-to-viewport": "^1.1.1",

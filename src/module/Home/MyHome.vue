@@ -1,33 +1,30 @@
 <template>
-    <div class="wrap">
-        <h1>hey</h1>
-        <h2>{{ mes }}</h2>
-        <h2>{{ info }}</h2>
+    <div class="home">
+        <div>hi,{{ name }}</div>
+        <div>子组件: <Hello /></div>
     </div>
 </template>
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import Hello from '../../components/Hello.vue';
+@Component({
     name: 'MyHome',
-    data() {
-        return {
-            mes: 3,
-            info: 3
-        };
-    },
-    mounted() {}
-};
-</script>
-<style scoped lang="less" module>
-.wrap {
-    width: 100%;
-    height: 100vh;
-    background: url('../../assets/images/bg.jpg') no-repeat center center;
-    background-size: cover;
-
-    h1,
-    h2 {
-        background: yellow;
-        width: 120px;
+    components: {
+        Hello
     }
+})
+export default class MyHome extends Vue {
+    private name: string = 'MyHomeComponent';
+    mounted() {
+        console.log('Hello Component mounted', this.name);
+    }
+}
+</script>
+<style lang="less" scoped module>
+.home {
+    background: lightcoral;
+    font-size: 18px;
+    border: 1px saddlebrown solid;
 }
 </style>
