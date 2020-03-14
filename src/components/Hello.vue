@@ -1,5 +1,8 @@
 <template>
-    <div class="hello">hello,{{ age }}</div>
+    <div>
+        <div class="hello">hello,{{ age }}</div>
+        <div class="wrap">wrap</div>
+    </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
@@ -17,5 +20,10 @@ export default class Hello extends Vue {
 <style lang="less" scoped module>
 .hello {
     background: lightblue;
+}
+.wrap {
+    width: 60px;
+    height: 120px;
+    border: 1px solid red;
 }
 </style>

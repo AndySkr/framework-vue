@@ -25,6 +25,5 @@ export default class MyHome extends Vue {
 .home {
     background: lightcoral;
     font-size: 18px;
-    border: 1px saddlebrown solid;
 }
 </style>
