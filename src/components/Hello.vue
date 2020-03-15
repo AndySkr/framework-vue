@@ -11,7 +11,7 @@ import Component from 'vue-class-component';
 	name: 'Hello'
 })
 export default class Hello extends Vue {
-	private age: number = 12;
+	public age: number = 12;
 	mounted() {
 		console.log('Hello Component mounted', this.age);
 	}
