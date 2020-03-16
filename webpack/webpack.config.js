@@ -42,14 +42,18 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					{loader: process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader},
+					{
+						loader: !process.env.npm_config_mode ? 'vue-style-loader' : MiniCssExtractPlugin.loader
+					},
 					'css-loader'
 				]
 			},
 			{
 				test: /\.less$/,
 				use: [
-					{loader: process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader},
+					{
+						loader: !process.env.npm_config_mode ? 'vue-style-loader' : MiniCssExtractPlugin.loader
+					},
 					'css-loader',
 					{
 						loader: 'postcss-loader',

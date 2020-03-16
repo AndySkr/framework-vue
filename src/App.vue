@@ -4,18 +4,11 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script >
 import Vue from 'vue';
-import Component from 'vue-class-component';
-interface PropsTypes {}
-@Component({
-	name: 'App'
-})
-export default class App extends Vue {
-	created() {
-		console.log('App created', 111111111);
-	}
-}
+export default {
+	created() {}
+};
 </script>
 
 <style lang="less" scoped></style>

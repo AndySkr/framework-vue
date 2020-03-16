@@ -1,7 +1,8 @@
 import {GET} from '../../untils/axios/index';
+import {USERDOMAIN} from '../../../app.config';
+console.log(USERDOMAIN);
 class HomeModuleApi {
-	prifixUrl: string = '/users';
-	@GET(`/users`)
+	@GET(`${USERDOMAIN}/users`)
 	getUser: any;
 }
 

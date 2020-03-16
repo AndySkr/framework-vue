@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import MyHome from './MyHome';
+import HomeModuleRoutes from './HomeModule/HomeModuleRoutes';
+import UserModuleRoutes from './UserModule/UserModuleRoutes';
 Vue.use(Router);
 export default new Router({
-	routes: [...MyHome],
+	routes: [...HomeModuleRoutes, ...UserModuleRoutes],
 	mode: 'hash'
 });
