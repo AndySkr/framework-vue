@@ -92,7 +92,7 @@ module.exports = {
 			title: 'Andy`s project',
 			logo: path.resolve('../src/assets/images/blackManba.jpg'),
 			suppressSuccess: true
-		}),
+		})
 		new ForkTsCheckerWebpackPlugin({
 			async: false
 		})

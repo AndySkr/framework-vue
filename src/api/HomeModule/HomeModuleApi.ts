@@ -1,8 +1,8 @@
-import {GET} from '../../untils/axios/index';
-import {USERDOMAIN} from '../../../app.config';
-console.log(USERDOMAIN);
+// import {GET} from '../../untils/axios/index.js';
+// import {USERDOMAIN} from '../../../app.config.js';
+// console.log(USERDOMAIN);
 class HomeModuleApi {
-	@GET(`${USERDOMAIN}/users`)
+	// @GET(`${USERDOMAIN}/users`)
 	getUser: any;
 }
 

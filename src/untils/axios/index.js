@@ -62,4 +62,4 @@ function POST(url) {
 	};
 }
 
-export {GET, POST};
+export default {GET, POST};

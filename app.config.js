@@ -25,5 +25,4 @@ const getDomainConfig = (env = 'dev') => {
 };
 console.log(window.ENV, 'config');
 const USERDOMAIN = getDomainConfig(window.ENV).userModule._USERDOMAIN_;
-console.log(USERDOMAIN, 666);
-export {USERDOMAIN};
+export default {USERDOMAIN};
