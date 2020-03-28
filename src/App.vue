@@ -1,21 +1,11 @@
 <template>
-    <div id="app">
-        <router-view />
-    </div>
+	<div id="app">
+		<router-view />
+	</div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-interface PropsTypes {}
-@Component({
-    name: 'App'
-})
-export default class App extends Vue {
-    created() {
-        console.log('App created', 111111111);
-    }
+<style lang="less">
+#app {
+	width: 100%;
+	height: 100%;
 }
-</script>
-
-<style lang="less" scoped></style>
+</style>

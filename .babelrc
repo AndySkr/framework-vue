@@ -1,19 +1,26 @@
 {
-    "presets": ["@babel/preset-env"],
-    "plugins": [
-        [
-            "@babel/plugin-proposal-decorators",
-            {
-                "legacy": true
-            }
-        ],
-        [
-            "@babel/plugin-proposal-class-properties",
-            {
-                "loose": false
-            }
-        ],
-        "@babel/plugin-transform-runtime",
-        ["@babel/plugin-syntax-dynamic-import"]
-    ]
+	"presets": ["@babel/preset-env"],
+	"plugins": [
+		[
+			"@babel/plugin-proposal-decorators",
+			{
+				"legacy": true
+			}
+		],
+		[
+			"@babel/plugin-proposal-class-properties",
+			{
+				"loose": false
+			}
+		],
+		"@babel/plugin-transform-runtime",
+		["@babel/plugin-syntax-dynamic-import"],
+		[
+			"component",
+			{
+				"libraryName": "element-ui",
+				"styleLibraryName": "theme-chalk"
+			}
+		]
+	]
 }

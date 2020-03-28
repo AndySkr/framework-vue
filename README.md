@@ -4,7 +4,7 @@
         npm run build --mode=dev
         npm run build --mode=prod
 
-    1.vue + vue-router + typescript + webpack 搭建的简单版移动端脚手架
+    1.vue + vue-router+vuex + axios(二次封装) + typescript + webpack搭建的脚手架
     2.采用了基于类的组件的编码方式,借助 vue-class-component 插件提供的装饰器,很舒服的:
             import Vue from 'vue'
             import Component from 'vue-class-component'
@@ -32,6 +32,3 @@
                     window.alert(this.message)
                 }
             }
-
-    3. 对于状态管理,首选肯定是配套的vuex,目前暂未引入使用.
-    4. 数据请求暂时选用尤大推荐的axios.
