@@ -1,8 +1,8 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 module.exports = {
@@ -41,15 +41,12 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-					'css-loader'
-				]
+				use: [process.env.npm_config_mode ? MiniCssExtractPlugin.loader : 'vue-style-loader', 'css-loader']
 			},
 			{
 				test: /\.less$/,
 				use: [
-					process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+					process.env.npm_config_mode ? MiniCssExtractPlugin.loader : 'vue-style-loader',
 					'css-loader',
 					{
 						loader: 'postcss-loader',
@@ -68,9 +65,13 @@ module.exports = {
 			{
 				test: /(\.jpg)|(\.png)|(\.jpeg)|(\.gif)|(\.ttf)|(\.woff)$/,
 				use: {
-					loader: 'url-loader',
+					loader: 'file-loader',
 					options: {
-						esModule: false
+						esModule: false,
+						limit: 1024,
+						name: '[name].[hash:8].[ext]'
+						// publicPath: 'img',
+						// outputPath: '/img'
 					}
 				}
 			}
@@ -86,7 +87,7 @@ module.exports = {
 		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
 			filename: 'styles/[name].[hash:5].css',
-			chunkFilename: 'styles/[id].[hash:5].css'
+			chunkFilename: 'styles/[name].[hash:5].css'
 		}),
 		new WebpackBuildNotifierPlugin({
 			// 全局提示webpack打包完成结果

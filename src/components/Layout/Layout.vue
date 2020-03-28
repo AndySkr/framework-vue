@@ -1,7 +1,13 @@
 <template>
 	<div class="wrap">
 		<el-container>
-			<el-header>Header</el-header>
+			<el-header>
+				<div>
+					<div class="logBox">
+						<img src="../../assets/images/taiji_log.gif" width="60" height="60" alt="" />
+					</div>
+				</div>
+			</el-header>
 			<el-container>
 				<el-aside>
 					<el-menu
@@ -14,21 +20,25 @@
 						text-color="#fff"
 						active-text-color="#8B1CE0"
 					>
-						<el-submenu index="1">
+						<el-submenu :index="item.path" v-for="item in routesArr" :key="item.name">
 							<template slot="title">
 								<i class="el-icon-location"></i>
-								<span>导航一</span>
+								<span>{{ item.meta.menuName }}</span>
 							</template>
-							<el-menu-item index="booklist">
+							<el-menu-item
+								:index="childRoute.path"
+								v-for="childRoute in item.children"
+								:key="childRoute.name"
+							>
 								<template slot="title">
 									<i class="el-icon-s-shop"></i>
-									<span slot="title">图书列表</span>
+									<span slot="title">{{ childRoute.meta.menuName }}</span>
 								</template>
 							</el-menu-item>
 						</el-submenu>
 					</el-menu>
 				</el-aside>
-				<el-main><router-view /></el-main>
+				<el-main><router-view /> </el-main>
 			</el-container>
 		</el-container>
 	</div>
@@ -40,11 +50,11 @@ import Component from 'vue-class-component';
 	name: 'Layout'
 })
 export default class Layout extends Vue {
-	private activeIndex: string = '1';
-	private activeIndex2: string = '2';
+	routesArr: any = [];
+
 	created() {
-		console.log(this.$router);
-		console.log(this.$route);
+		this.routesArr.push((this.$router as any).options.routes[0]);
+		console.log(this.routesArr);
 	}
 	handleOpen() {}
 	handleClose() {}
@@ -63,8 +73,14 @@ export default class Layout extends Vue {
 		line-height: 60px;
 	}
 	.el-header {
+		padding: 0;
 		height: 100px;
-		background-color: #d3dce6;
+		background-color: #fff;
+		.logBox {
+			width: 200px;
+			// background: #000;
+			text-align: center;
+		}
 	}
 	aside.el-aside {
 		width: 200px !important;
