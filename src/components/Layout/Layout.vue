@@ -2,17 +2,15 @@
 	<div class="wrap">
 		<el-container>
 			<el-header>
-				<div>
-					<div class="logBox">
-						<img src="../../assets/images/taiji_log.gif" width="60" height="60" alt="" />
-					</div>
+				<div class="headerBox">
+					<div class="logBox"></div>
 				</div>
 			</el-header>
 			<el-container>
 				<el-aside>
 					<el-menu
 						router
-						default-active="booklist"
+						:default-active="this.$route.name"
 						class="el-menu-vertical-demo"
 						@open="handleOpen"
 						@close="handleClose"
@@ -21,10 +19,12 @@
 						active-text-color="#8B1CE0"
 					>
 						<el-submenu :index="item.path" v-for="item in routesArr" :key="item.name">
+							<!-- 一级菜单 -->
 							<template slot="title">
 								<i class="el-icon-location"></i>
 								<span>{{ item.meta.menuName }}</span>
 							</template>
+							<!-- 二级菜单 -->
 							<el-menu-item
 								:index="childRoute.path"
 								v-for="childRoute in item.children"
@@ -38,7 +38,9 @@
 						</el-submenu>
 					</el-menu>
 				</el-aside>
-				<el-main><router-view /> </el-main>
+				<el-main>
+					<router-view />
+				</el-main>
 			</el-container>
 		</el-container>
 	</div>
@@ -54,7 +56,7 @@ export default class Layout extends Vue {
 
 	created() {
 		this.routesArr.push((this.$router as any).options.routes[0]);
-		console.log(this.routesArr);
+		console.log(this.$route);
 	}
 	handleOpen() {}
 	handleClose() {}
@@ -66,26 +68,29 @@ export default class Layout extends Vue {
 	section.el-container {
 		height: 100%;
 	}
-	.el-header,
-	.el-footer {
-		background-color: #d3dce6;
-		color: #333;
-		line-height: 60px;
-	}
+
 	.el-header {
 		padding: 0;
 		height: 100px;
 		background-color: #fff;
-		.logBox {
-			width: 200px;
-			// background: #000;
-			text-align: center;
+		color: #333;
+		.headerBox {
+			height: 100%;
+			.logBox {
+				width: 200px;
+				height: 100%;
+				box-sizing: border-box;
+				text-align: center;
+			}
 		}
 	}
 	aside.el-aside {
 		width: 200px !important;
 		background-color: #001529;
 		color: #ccc;
+		.el-menu {
+			border-right: none;
+		}
 	}
 
 	.el-main {

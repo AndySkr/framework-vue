@@ -1,41 +1,26 @@
 const Layout = () => import(/* webpackChunkName: "Layout" */ '../components/Layout/Layout.vue');
 const BookInfo = () => import(/* webpackChunkName: "BookInfo" */ '../module/BookInfo/BookInfo.vue');
-const Login = () => import(/* webpackChunkName: Home */ '../module/account/Login.vue');
+const Hello = () => import(/* webpackChunkName: Hello */ '../components/Hello.vue');
 export default [
 	{
 		path: '/home',
-		name: 'Layout',
+		name: 'home',
 		component: Layout,
-		redirect: '/home',
+		redirect: '/home/booklist',
 		meta: {menuName: '图书管理'},
 		children: [
 			{
 				path: 'booklist',
-				name: 'BookInfo',
+				name: 'booklist',
 				component: BookInfo,
 				meta: {menuName: '书籍列表'}
 			},
 			{
-				path: 'test',
-				name: 'test',
-				component: Login,
+				path: 'hello',
+				name: 'hello',
+				component: Hello,
 				meta: {menuName: '列表'}
 			}
 		]
 	}
-	// {
-	// 	path: '/index',
-	// 	name: 'index',
-	// 	component: Layout,
-	// 	redirect: '/index',
-	// 	meta: {menuName: '管理'},
-	// 	children: [
-	// 		{
-	// 			path: 'test',
-	// 			name: 'test',
-	// 			component: Login,
-	// 			meta: {menuName: '列表'}
-	// 		}
-	// 	]
-	// }
 ];

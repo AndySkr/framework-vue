@@ -5,7 +5,7 @@
         npm run build --mode=prod
 
     1.vue + vue-router+vuex + axios(二次封装) + typescript + webpack搭建的脚手架
-    2.采用了基于类的组件的编码方式,借助 vue-class-component 插件提供的装饰器,很舒服的:
+    2.采用了基于类的组件的编码方式,借助 vue-class-component 插件提供的装饰器:
             import Vue from 'vue'
             import Component from 'vue-class-component'
 
@@ -27,7 +27,7 @@
                     console.log("mounted")
                 }
 
-                // 组件方法也可以直接声明为实例的方法
+                // 组件方法直接声明为实例的方法
                 onClick (): void {
                     window.alert(this.message)
                 }
