@@ -1,7 +1,7 @@
 const DOMAIN_CONFIG = {
 	dev: {
 		userModule: {
-			_USERDOMAIN_: 'https://api.github.com',
+			_USERDOMAIN_: 'http://localhost:3001',
 			token: ''
 		},
 		homeModule: {

@@ -21,7 +21,7 @@
 						<el-submenu :index="item.path" v-for="item in routesArr" :key="item.name">
 							<!-- 一级菜单 -->
 							<template slot="title">
-								<i class="el-icon-location"></i>
+								<i class="el-icon-notebook-1"></i>
 								<span>{{ item.meta.menuName }}</span>
 							</template>
 							<!-- 二级菜单 -->
@@ -31,7 +31,7 @@
 								:key="childRoute.name"
 							>
 								<template slot="title">
-									<i class="el-icon-s-shop"></i>
+									<i class="el-icon-reading"></i>
 									<span slot="title">{{ childRoute.meta.menuName }}</span>
 								</template>
 							</el-menu-item>
@@ -56,7 +56,7 @@ export default class Layout extends Vue {
 
 	created() {
 		this.routesArr.push((this.$router as any).options.routes[0]);
-		console.log(this.$route);
+		// console.log(this.$route);
 	}
 	handleOpen() {}
 	handleClose() {}
@@ -95,7 +95,7 @@ export default class Layout extends Vue {
 
 	.el-main {
 		background-color: #e9eef3;
-		color: #333;
+		color: #eee;
 		padding: 0;
 	}
 }

@@ -1,6 +1,6 @@
 const Layout = () => import(/* webpackChunkName: "Layout" */ '../components/Layout/Layout.vue');
 const BookInfo = () => import(/* webpackChunkName: "BookInfo" */ '../module/BookInfo/BookInfo.vue');
-const Hello = () => import(/* webpackChunkName: Hello */ '../components/Hello.vue');
+const Hello = () => import(/* webpackChunkName: "Hello" */ '../components/Hello.vue');
 export default [
 	{
 		path: '/home',
