@@ -3,8 +3,9 @@ class A {
     constructor() {
         this.name = 'Andy';
     }
+    // fn 方法
     fn() {
-        console.log('hello', this.name);
+        console.log('you', this.name);
         sayHello();
     }
 }
