@@ -1,4 +1,5 @@
 {
+	"name": "vue-project",
 	"scripts": {
 		"dev:dashboard": "webpack-dashboard -- webpack-dev-server --config webpack/webpack.dev.js --colors",
 		"start": "webpack-dev-server --config webpack/webpack.dev.js --hot --inline  --colors  --progress",
