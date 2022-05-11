@@ -1,8 +1,13 @@
 {
-	"name": "vue-project",
+	"name": "<%=projectName%>",
+	"version": "1.0.0",
+	"description": "<%=description%>",
+	"author": "<%=author%>",
+	"private": "<%=private%>",
+	"license": "ISC",
 	"scripts": {
 		"dev:dashboard": "webpack-dashboard -- webpack-dev-server --config webpack/webpack.dev.js --colors",
-		"start": "webpack-dev-server --config webpack/webpack.dev.js --hot --inline  --colors  --progress",
+		"start": "webpack-dev-server --config webpack/webpack.dev.js --hot --inline  --colors  --progress --open",
 		"build": "webpack --config webpack/webpack.prod.js --env prod --colors --progress"
 	},
 	"devDependencies": {
