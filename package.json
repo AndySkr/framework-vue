@@ -52,7 +52,7 @@
 		"webpack-merge": "^4.2.2"
 	},
 	"dependencies": {
-		"axios": "^0.19.2",
+		"axios": "^0.21.2",
 		"element-ui": "^2.13.0",
 		"hard-source-webpack-plugin": "^0.13.1",
 		"path": "^0.12.7",
